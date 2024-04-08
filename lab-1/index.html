@@ -1,101 +1,166 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Table Reservation</title>
-    <link rel="stylesheet" href="style.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com"/>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-            href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-            rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
     />
-</head>
-<body>
-<header class="header"></header>
-<main>
-    <div class="container">
+  </head>
+  <body>
+    <header class="header"></header>
+    <main>
+      <div class="container">
         <div class="line"></div>
         <div class="form-header">
-            <h1>Zodchie Table Reservation</h1>
-            <p class="text-info">
-                The name and photo associated with your Google account Will be
-                recorded when you upload files and submit this form. Not
-                spas.work@gmail.eom? Switch account
-            </p>
-            <p class="text-info warning">*Required</p>
+          <h1>Zodchie Table Reservation</h1>
+          <p class="text-info">
+            The name and photo associated with your Google account Will be
+            recorded when you upload files and submit this form. Not
+            spas.work@gmail.eom? Switch account
+          </p>
+          <p class="text-info warning">*Required</p>
         </div>
         <div class="form-container">
-            <form action="" method="post">
-                <div class="form-group">
-                    <label for="name">Your Name<span class="warning"> *</span></label>
-                    <input
-                            type="text"
-                            id="name"
-                            name="customerName"
-                            placeholder="Jonah Doe"
-                            required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="phone"
-                    >Phone Number<span class="warning"> *</span></label
-                    >
-                    <input
-                            id="phone"
-                            type="tel"
-                            name="phoneNumber"
-                            placeholder="+375 (xx) xxx xx xx"
-                            required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="login ">Login<span class="warning"> *</span></label
-                    ><input
-                        id="login "
-                        type="text"
-                        name="login"
-                        value="Prefilled"
-                        required
-                />
-                </div>
-                <div class="form-group">
-                    <label for="password"
-                    >Password <span class="warning"> *</span></label
-                    ><input id="password" type="password" required/>
-                </div>
-                <div class="form-group">
-                    <label for="guests">Number of guests</label>
-                    <input id="guests" type="number" name="guestsNo" min="1" max="7"/>
-                </div>
-                <div class="form-group">
-                    <label for="date"
-                    >Date you would like to reserve<span class="warning">
+          <form action="https://myservice/api/reservations" method="post">
+            <div class="form-group">
+              <label for="name">Your Name<span class="warning"> *</span></label>
+              <input
+                type="text"
+                id="name"
+                name="customerName"
+                placeholder="Jonah Doe"
+                title="Your name should contain only letters"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="phone"
+                >Phone Number<span class="warning"> *</span></label
+              >
+              <input
+                id="phone"
+                type="tel"
+                name="phoneNumber"
+                placeholder="+375 (xx) xxx xx xx"
+                title="Your phone number should be in the format +375 (xx) xxx xx xx"
+                pattern="\+375\s*\d{2}\s*\d{7}"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="login ">Login<span class="warning"> *</span></label
+              ><input
+                id="login "
+                type="text"
+                name="login"
+                value="Prefilled"
+                title="Your login should contain only letters and numbers"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="password"
+                >Password <span class="warning"> *</span></label
+              ><input id="password" type="password" required />
+            </div>
+            <div class="form-group">
+              <label for="guests">Number of guests</label>
+              <input
+                id="guests"
+                type="number"
+                name="guestsNo"
+                min="1"
+                max="7"
+              />
+            </div>
+            <div class="form-group">
+              <label for="vegetarian">Are you vegetarian?</label>
+              <input
+                type="checkbox"
+                id="vegetarian"
+                name="vegetarian"
+                value="vegetarian">Yes
+            </div>
+            <div class="form-group no-vegans">
+              <img src="https://www.homewetbar.com/blog/wp-content/uploads/2014/04/how-to-grill-steak-550x364.jpg" alt="steak" />
+              <label for="wellness"
+                >What steak cooking level do you like?</label
+              >
+              <select name="" id="wellness">
+                <option disabled selected value="noval">--Chose Value--</option>
+                <option value="rare">Rare</option>
+                <option value="medium">Medium</option>
+                <option value="well done">Well Done</option>
+              </select>
+            </div>
+            <div class="form-group tango" hidden>
+              <label for="">Lifestealer 9 tango in a backpack?</label>
+              <input type="radio" name="tango" value="tango"> Yes
+              <img src="https://preview.redd.it/6ojibythf0d11.png?auto=webp&s=abce4e748c2dc979bddca567e140373ac3e21303" alt="tango">
+            </div>
+            <div class="form-group">
+              <label for="date"
+                >Date you would like to reserve<span class="warning">
                   *</span
-                    ></label
-                    >
-                    <input
-                            id="date"
-                            type="datetime-local"
-                            name="reservationDateTime"
-                            required
-                    />
-                </div>
-                <div class="form-group">
-                    <label for="message">Additional info</label>
-                    <textarea
-                            id="message"
-                            name="message"
-                            placeholder="Additional info here"
-                    >
+                ></label
+              >
+              <input
+                id="date"
+                type="datetime-local"
+                name="reservationDateTime"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message">Additional info</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Additional info here"
+              >
               </textarea>
-                </div>
-                <button class="button-submit" type="submit">SUBMIT</button>
-                <p class="text-gray-info">Never submit passwords through Google Forms.</p>
+              <div class="form-group">
+                <label for="file">Downloading progress</label>
+                <progress id="file" value="32" max="100">32%</progress>
+              </div>
+            <form oninput="updateValue()">
+                <input type="range" id="a" value="50">
+                + 
+                <input type="number" id="b" value="50">
+                = 
+                <output name="result" for="a b">100</output>
             </form>
+              </div>
+            </div>
+            <button class="button-submit" type="submit">SUBMIT</button>
+            <p class="text-gray-info">
+              Never submit passwords through Google Forms.
+            </p>
+          </form>
         </div>
-    </div>
-</main>
-<footer class="footer"></footer>
-</body>
+      </div>
+    </main>
+    <footer class="footer"></footer>
+  </body>
+  <script>
+    function updateValue() {
+      var a = parseInt(document.getElementById("a").value);
+      var b = parseInt(document.getElementById("b").value);
+      document.getElementById("result").value = a + b;
+    }
+    document.getElementById('vegetarian').addEventListener('change', function() {
+      if (this.checked) {
+        document.querySelector('.no-vegans').style.display = 'none';
+        document.querySelector('.tango').style.display = 'block';
+      } else {
+        document.querySelector('.no-vegans').style.display = 'block';
+        document.querySelector('.tango').style.display = 'none';
+      }
+    });
+  </script>
 </html>
